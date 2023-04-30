@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minha página</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body {
+        width: 100%;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background-color: rgb(240, 240, 240, 1);
+      }
+
+      .game-container {
+        width: 100%;
+        min-height: 480px;
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .game-container > .player-containers {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .game-container > .player-containers > .div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .game-container > .player-containers > .player {
+        transform: rotateY(180deg);
+      }
+
+      .game-container > .player-containers > .player > .option:hover {
+        opacity: 1;
+      }
+
+      .game-container > .player-containers .option {
+        width: 100%;
+        max-width: 150px;
+        opacity: 0.5;
+        transition: 0.5s;
+        cursor: pointer;
+      }
+
+      .game-container > .player-containers .option > img {
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: auto;
+        object-fit: cover;
+      }
+
+      .game-container > .result-container {
+        padding: 16px;
+        text-align: center;
+        font-size: 22px;
+        color: rgba(60, 60, 60, 1);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="game-container">
+      <div class="player-containers">
+        <div class="player">
+          <div class="option" data-value="stone" data-selected="false">
+            <img src="assets/stone.png" alt="pedra" class="option" />
+          </div>
+          <div class="option" data-value="paper" data-selected="false">
+            <img src="assets/paper.png" alt="papel" class="option" />
+          </div>
+          <div class="option" data-value="scissor" data-selected="false">
+            <img src="assets/scissor.png" alt="tesoura" class="option" />
+          </div>
+        </div>
+        <div class="enemy">
+          <div class="option" data-value="stone" data-selected="false">
+            <img src="assets/stone.png" alt="pedra" class="option" />
+          </div>
+          <div class="option" data-value="paper" data-selected="false">
+            <img src="assets/paper.png" alt="papel" class="option" />
+          </div>
+          <div class="option" data-value="scissor" data-selected="false">
+            <img src="assets/scissor.png" alt="tesoura" class="option" />
+          </div>
+        </div>
+      </div>
+      <div class="result-container">
+        <span>Comece a jogar</span>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  const playerOptionsList = document.querySelectorAll(".player .option");
+  const enemyOptionsList = document.querySelectorAll(".enemy .option");
+
+  playerOptionsList.forEach((option) => {
+    option.onclick = () => {
+      clearOptions(playerOptionsList);
+      option.style.opacity = "1";
+      option.setAttribute("data-selected", true);
+
+      iaEnemy();
+
+      const movePlayer = option.getAttribute("data-value");
+      const moveEnemy = iaEnemy();
+
+      result(movePlayer, moveEnemy);
+    };
+  });
+
+  const iaEnemy = () => {
+    const optionRandom = Math.floor(Math.random() * enemyOptionsList.length);
+    const optionSelected = enemyOptionsList[optionRandom];
+
+    clearOptions(enemyOptionsList);
+
+    optionSelected.style.opacity = "1";
+    optionSelected.setAttribute("data-selected", "true");
+
+    return optionSelected.getAttribute("data-value");
+  };
+
+  const clearOptions = (optionsList) => {
+    optionsList.forEach((option) => {
+      option.setAttribute("data-selected", "false");
+      option.style.opacity = "0.5";
+    });
+  };
+
+  const result = (movePlayer, moveEnemy) => {
+    const resultElement = document.querySelector(".result-container span");
+    if (movePlayer === moveEnemy) {
+      resultElement.textContent = "Você empatou";
+    } else if (
+      (movePlayer === "stone" && moveEnemy === "paper") ||
+      (movePlayer === "paper" && moveEnemy === "scissor") ||
+      (movePlayer == "scissor" && moveEnemy === "stone")
+    ) {
+      resultElement.textContent = "Você perdeu";
+    } else if (
+      (movePlayer === "stone" && moveEnemy === "scissor") ||
+      (movePlayer === "scissor" && moveEnemy === "paper") ||
+      (movePlayer === "paper" && moveEnemy === "stone")
+    ) {
+      resultElement.textContent = "Você ganhou";
+    }
+  };
+</script>
