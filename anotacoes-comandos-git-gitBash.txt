@@ -1,0 +1,40 @@
+Comandos gitBash:
+	cd: para mudar de diretório.
+
+	ls: para listar arquivos e diretórios no diretório atual.
+
+	mkdir: para criar um novo diretório.
+
+	rm: para remover arquivos ou diretórios.
+
+	touch: para criar um novo arquivo.
+
+	nano: para abrir um editor de texto simples.
+Comandos git:
+	git: para usar o Git, um sistema de controle de versão de arquivos.
+
+	git init: Cria um novo repositório Git.
+
+	git clone: Clona um repositório Git existente em um novo diretório.
+
+	git add: Adiciona mudanças ao índice.
+
+	git commit: Registra as mudanças no repositório.
+
+	git push: Envia as mudanças locais para o repositório remoto.
+
+	git pull: Obtém as mudanças do repositório remoto.
+
+	git status: Mostra o estado atual do repositório, incluindo quais arquivos foram modificados.
+
+	git log: Mostra o histórico de commits.
+
+	git branch: Lista, cria ou exclui branches.
+
+	git checkout: Troca entre diferentes branches ou versões de um arquivo.
+
+	git merge: Combina as mudanças de duas branches diferentes.
+
+	git stash: Salva mudanças em um local temporário para que possam ser recuperadas mais tarde.
+
+	git remote: Configura conexões para repositórios remotos.
