@@ -1,0 +1,56 @@
+*{
+    padding: 0;
+    margin: 0;
+
+}
+
+body{
+    background-color: #a3b18a;
+    margin-top: 33%;
+    margin-left: 20% ;
+    margin-right: 20%;
+
+}
+
+#tRelogio{
+    text-align: center;
+    margin-left: 33%;
+    margin-right: 33%;
+    background-color: #344e41;
+    font-size: 32px ;
+    border-radius: 12px;
+
+}
+
+.box{
+    background-color: #344e41;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 12cm;
+}
+
+.text{
+    background-color: #588157;
+    margin-top: 4%;
+    margin-bottom: 4%;
+    margin-left: 4%;
+    margin-right: 4%;
+    font-size: 36px;
+    text-align: center;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    display: block;
+    border-radius: 29cm;
+}
+
+.tempo{
+    margin-left: 2px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.text:hover{
+    cursor: pointer;
+    background-color: #a3b18a;
+}

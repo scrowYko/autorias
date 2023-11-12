@@ -1,0 +1,3 @@
+https://education.lego.com/pt-br/downloads/mindstorms-ev3/software/
+
+para abrir o arquivo de programa TesteIV 01.lmsp deve-se instalar o EV3 Classroom -> Arquivo -> abrir

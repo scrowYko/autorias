@@ -1,0 +1,1 @@
+<h1> Olá, esta autoria foi feita para explorar elementos e propriedades de Date em java script, enquanto testava algumas propriedades em CSS, unindo tudo em um HTML, e nada melhor do que um relógio para explorar de propriedades de elementos do tipo Date.
